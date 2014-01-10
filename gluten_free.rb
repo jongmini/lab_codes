@@ -11,7 +11,7 @@
  
 "======================================================================"
  
-# Create a Person class. A person will have a show_stomach and allergies
+# Create a Person class. A person will have a stomach and allergies
 # Create a method that allows the person to eat and add arrays of food to their stomachs
 # If a food array contains a known allergy reject the food.
  
@@ -22,7 +22,7 @@ end
 
 class Person
 
-# instance takes the type of allergy and sets the show_stomach to an empty array and yum to true
+# instance takes the type of allergy and sets the stomach to an empty array and yum to true
 	def initialize(allergies="", stomach=[]) #good practice to declare type of input
 		@allergies = allergies
 		@stomach = stomach
@@ -54,13 +54,13 @@ class Person
 	  end
 	end
 
-# show_stomach method returns what's in the show_stomach
+# show_stomach method returns what's in the @stomach
 	def show_stomach
 		if @yum == true
 		  @stomach << @food
 		  puts "I've eaten #{@stomach.join(",")}"
 		else 
-# if yum is not true then the show_stomach array gets reset to empty
+# if yum is not true then the show @stomach array gets reset to empty
 		  @stomach =[]
 		  puts "I threw up!"
 		end
@@ -104,4 +104,4 @@ beth.show_stomach
  
  
 # Bonus: When a person attempts to eat a food they are allergic to,
-#        ... remove ALL the food from the person's show_stomach before raising the exception
+#        ... remove ALL the food from the person's stomach before raising the exception
