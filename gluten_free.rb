@@ -11,7 +11,7 @@
  
 "======================================================================"
  
-# Create a Person class. A person will have a stomach and allergies
+# Create a Person class. A person will have a show_stomach and allergies
 # Create a method that allows the person to eat and add arrays of food to their stomachs
 # If a food array contains a known allergy reject the food.
  
@@ -22,11 +22,12 @@ end
 
 class Person
 
-# instance takes the type of allergy and sets the stomach to an empty array and yum to true
-	def initialize(allergies, stomach=[], yum = true)
+# instance takes the type of allergy and sets the show_stomach to an empty array and yum to true
+	def initialize(allergies="", stomach=[]) #good practice to declare type of input
 		@allergies = allergies
 		@stomach = stomach
-		@yum = yum
+		@yum = true
+		@food = [] #good practice to state the instance varible here
 		puts "I am allergic to #{@allergies}."
 	end
 
@@ -42,7 +43,7 @@ class Person
 		if @food.include?(@allergies)
 			@yum = false
 			raise AllergicError.new("Allergy Error: I got sick because there was #{@allergies}!")
-	     else
+	    else
 # if the food item contains no allergies then keep on eating!
 			puts "That was so yummmmmmmmmmmmmy!"
 			@yum = true
@@ -53,13 +54,13 @@ class Person
 	  end
 	end
 
-# stomach method returns what's in the stomach
-	def stomach
+# show_stomach method returns what's in the show_stomach
+	def show_stomach
 		if @yum == true
 		  @stomach << @food
 		  puts "I've eaten #{@stomach.join(",")}"
 		else 
-# if yum is not true then the stomach array gets reset to empty
+# if yum is not true then the show_stomach array gets reset to empty
 		  @stomach =[]
 		  puts "I threw up!"
 		end
@@ -82,23 +83,25 @@ water = ["h", "h", "o"]
 
 chris = Person.new("gluten")
 chris.eat(water)
-chris.stomach
+chris.show_stomach
 chris.eat(pan_seared_scallops)
-chris.stomach
+chris.show_stomach
 chris.eat(pizza)
-chris.stomach
+chris.show_stomach
+chris.eat(pan_seared_scallops)
+chris.show_stomach
 puts
 beth = Person.new("scallops")
 beth.eat(pizza)
-beth.stomach
+beth.show_stomach
 beth.eat(water)
-beth.stomach
+beth.show_stomach
 beth.eat(pan_seared_scallops)
-beth.stomach
+beth.show_stomach
  
 # When a person attempts to eat a food they are allergic to, raise a custom exception
 # For example:  AllergyError
  
  
 # Bonus: When a person attempts to eat a food they are allergic to,
-#        ... remove ALL the food from the person's stomach before raising the exception
+#        ... remove ALL the food from the person's show_stomach before raising the exception
