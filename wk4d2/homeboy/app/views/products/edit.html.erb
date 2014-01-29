@@ -2,16 +2,18 @@
 <h1>Products</h1>
 
 <div class="lead">
-<%= @product.name %><%= button_to "delete product",{action: :destroy, id: @product.id}, method: :delete, class: "btn btn-default" %> <br>
+<%= @product.name %>
+<%= button_to "delete product",{action: :destroy, id: @product.id}, method: :delete, class: "btn btn-default" %> <br>
 
 categories
-<% @categories.map do |cat| %>
-<li><%= cat.name %> <%= button_to "delete category",{controller: :products, action: :disconnect, id: cat[:id]}, method: :disconnect, class: "btn btn-default" %></li>
+<% @categories.each do |cat| %>
+<li><%= cat.name %> 
+	<%= button_to "delete category",{controller: :products, action: :disconnect, cat_id: cat[:id]}, method: :disconnect, class: "btn btn-default" %></li>
 <% end %>
 <br>
 
 <%= form_for @product do |f| %>
-<%= f.select :categories, Category.all.map {|x| [x.name]},{controller: :products},{:multiple => true} %>
+<%= f.select :categories, @all_category_names,{controller: :products}, {:multiple => true} %>
 <%= f.submit "add category", class: "btn btn-default"  %>
 <% end %>
 
