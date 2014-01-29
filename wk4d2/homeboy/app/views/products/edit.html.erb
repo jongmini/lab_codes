@@ -1,0 +1,17 @@
+<h1>Products#edit</h1>
+<p>Find me in app/views/products/edit.html.erb</p>
+
+<%= @product.name %><%= button_to "delete",{action: :destroy, id: @product.id}, method: :delete %> 
+
+<% @categories.map do |cat| %>
+<li><%= cat.name %> <%= button_to "delete",{controller: :products, id: cat[:id]}, method: :disconnect %></li>
+<% end %>
+
+<%= form_for @product do |f| %>
+<%= f.select :categories, Category.all.map {|x| [x.name]},{controller: :products},{:multiple => true} %>
+<%= f.submit "Add Category" %>
+<% end %>
+
+
+
+

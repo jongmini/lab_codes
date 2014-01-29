@@ -1,0 +1,10 @@
+<h1>Products#show</h1>
+<p>Find me in app/views/products/show.html.erb</p>
+
+<%= @product.name %>
+
+<% @categories.map do |cat| %>
+<li><%= cat.name %></li>
+<% end %>
+
+<%= link_to "edit", edit_product_path %>
