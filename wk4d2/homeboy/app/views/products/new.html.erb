@@ -1,9 +1,9 @@
-<h1>Products#new</h1>
-<p>Find me in app/views/products/new.html.erb</p>
+<h1>Add Products</h1>
+
 
 
 <%= form_for @product do |f| %>
 	<%= f.label :name %>
 	<%= f.text_field :name  %>
-	<%= f.submit "create" %>
+	<%= f.submit "create", class: "btn btn-default"  %>
 <% end %>

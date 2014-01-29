@@ -1,6 +1,7 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<h1>Products</h1>
 
 <% @products.each do |prod| %>
-<li> <%= link_to prod.name, product_path(prod) %>
+<li class="h3"> <%= link_to prod.name, product_path(prod) %>
 <% end %>
+<br>
+<%=link_to "add product", new_product_path, class: "btn btn-default"   %>

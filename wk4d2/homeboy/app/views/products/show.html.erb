@@ -1,10 +1,15 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<h1>Products</h1>
 
-<%= @product.name %>
+<div class="lead">
 
+<%= @product.name %><br>
+<br>
+
+categories
 <% @categories.map do |cat| %>
 <li><%= cat.name %></li>
 <% end %>
 
-<%= link_to "edit", edit_product_path %>
+
+<%= button_to "edit product", edit_product_path, class: "btn btn-default" %>
+</div>

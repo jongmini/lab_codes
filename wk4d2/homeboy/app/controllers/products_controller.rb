@@ -30,15 +30,19 @@ class ProductsController < ApplicationController
 	  	@product.categories << Category.find_by_name(x)
 	  	end
   	redirect_to product_path
-
   end
 
   def destroy
   	id = params[:id]
   	prod = Product.find(id)
   	prod.destroy
-
   	redirect_to products_path
+  end
+
+  def disconnect
+  	id = params[:id]
+  	cat = Category.find(id)
+  	raise params.inspect
 
   end
 

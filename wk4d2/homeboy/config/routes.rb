@@ -4,6 +4,8 @@ Homeboy::Application.routes.draw do
 
   # Site Controller
   root "site#index"
+
+  post "/products/:id/edit", to: "products#disconnect"
     
   # get '/products', to: 'products#index'
   # get '/product/:id', to: 'product#show'

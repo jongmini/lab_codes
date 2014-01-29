@@ -1,11 +1,13 @@
-<h1>Categories#show</h1>
-<p>Find me in app/views/categories/show.html.erb</p>
+<h1>Categories</h1>
 
+<div class="lead">
 <%= @category.name %> 
-<%= button_to "delete",{action: :destroy, id: @category.id}, method: :delete %> 
+<%= button_to "delete category",{action: :destroy, id: @category.id}, method: :delete, class: "btn btn-default"  %> 
 
+products
 <% @products.map do |prod| %>
 <li><%= prod.name %></li>
 <% end %>
+</div>
 
-<%= link_to "edit", edit_category_path %>
+<%#= link_to "edit", edit_category_path, class: "btn btn-default"  %>
